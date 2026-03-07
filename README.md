@@ -1,4 +1,4 @@
-# engenharia_de_prompt_aplicacoes_ai
+# engenharia_de_prompt_aplicacoes_ia 
 repositório/ativadades da faculdade ou material de papiro 
 
 
