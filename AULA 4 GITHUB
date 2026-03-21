@@ -1,0 +1,61 @@
+# Função para criar um cadastro de login simples em Python
+# O cadastro será armazenado em um dicionário (estrutura de dados que guarda pares chave-valor).
+# A chave será o nome de usuário e o valor será a senha correspondente.
+
+def criar_cadastro():
+    # Inicializamos um dicionário vazio para armazenar os cadastros
+    cadastros = {}
+
+    # Loop infinito para permitir múltiplos cadastros até o usuário decidir parar
+    while True:
+        print("\n=== Sistema de Cadastro de Login ===")
+
+        # Solicita ao usuário um nome de login
+        usuario = input("Digite o nome de usuário: ")
+
+        # Verifica se o usuário já existe no dicionário
+        if usuario in cadastros:
+            print("Usuário já cadastrado! Escolha outro nome.")
+        else:
+            # Solicita a senha para o novo usuário
+            senha = input("Digite a senha: ")
+
+            # Armazena o par usuário-senha no dicionário
+            cadastros[usuario] = senha
+            print(f"Usuário '{usuario}' cadastrado com sucesso!")
+
+        # Pergunta se deseja continuar cadastrando
+        continuar = input("Deseja cadastrar outro usuário? (s/n): ").lower()
+        if continuar != 's':
+            break
+
+    # Exibe todos os cadastros criados
+    print("\n=== Lista de Cadastros Criados ===")
+    for usuario, senha in cadastros.items():
+        print(f"Usuário: {usuario} | Senha: {senha}")
+
+    # Retorna o dicionário com os cadastros
+    return cadastros
+
+
+# Função para realizar login
+def realizar_login(cadastros):
+    print("\n=== Sistema de Login ===")
+
+    # Solicita nome de usuário e senha
+    usuario = input("Digite seu nome de usuário: ")
+    senha = input("Digite sua senha: ")
+
+    # Verifica se o usuário existe e se a senha está correta
+    if usuario in cadastros and cadastros[usuario] == senha:
+        print("Login realizado com sucesso! Bem-vindo,", usuario)
+    else:
+        print("Usuário ou senha incorretos. Tente novamente.")
+
+
+# Programa principal
+# Primeiro criamos os cadastros
+cadastros = criar_cadastro()
+
+# Depois testamos o login
+realizar_login(cadastros)
